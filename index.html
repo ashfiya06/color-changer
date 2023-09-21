@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(37, 37, 37);
+            text-align: center;
+            text-transform: capitalize;
+
+        }
+
+        .parent {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .child {
+            height: 150px;
+            width: 150px;
+            border: solid 2px;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    //heading title
+    let heading = document.createElement("h1");
+    heading.innerText = "change the color";
+    heading.setAttribute("style", "color:white");
+    document.body.appendChild(heading)
+
+    //horizontal line
+    let hr = document.createElement("hr");
+    document.body.appendChild(hr)
+
+    //parent div
+    let par = document.createElement("div");
+    par.setAttribute('class', 'parent');
+    document.body.appendChild(par);
+
+    let color = ['red', 'green', 'aqua', 'purple'];
+    for (let i = 0; i < color.length; i++) {
+        //child div
+        let child = document.createElement("div")
+        child.setAttribute('class', 'child')
+        child.setAttribute("style", `background-color: ${color[i]}`);
+        child.setAttribute("onclick", `pressMe('${color[i]}')`)
+        par.appendChild(child)
+
+    }
+
+    function pressMe(a) {
+        let data = document.querySelector("body").style.backgroundColor = a;
+    }
+</script>
+
+</html>
